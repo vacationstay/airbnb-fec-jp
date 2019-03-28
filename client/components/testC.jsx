@@ -12,7 +12,6 @@ export default class TestC extends React.Component {
     componentDidMount() {
         this.setState({ value: 'somethingNew' });
     }
-
     render() {
         return (
             <div>testComponent</div>
