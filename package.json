@@ -1,0 +1,56 @@
+{
+  "name": "airbnb-fec-jp",
+  "jest": {
+    "verbose": true,
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest/setupTests.js"
+    ],
+    "testEnvironment": "enzyme",
+    "testEnvironmentOptions": {
+      "enzymeAdapter": "react16"
+    }
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -d --watch",
+    "server-dev": "nodemon index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrsf114-airbnb-clone/airbnb-fec-jp.git"
+  },
+  "author": "Julian Perez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hrsf114-airbnb-clone/airbnb-fec-jp/issues"
+  },
+  "homepage": "https://github.com/hrsf114-airbnb-clone/airbnb-fec-jp#readme",
+  "devDependencies": {
+    "babel-jest": "^24.5.0",
+    "babel-loader": "^8.0.5",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "jest": "^24.5.0",
+    "jest-environment-enzyme": "^7.0.2",
+    "nodemon": "^1.18.10",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/polyfill": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "date-fns": "^1.30.1",
+    "express": "^4.16.2",
+    "jquery": "^3.3.1",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpack": "^4.29.6"
+  }
+}
