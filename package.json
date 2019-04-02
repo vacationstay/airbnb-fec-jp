@@ -15,8 +15,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -d --watch",
-    "server-dev": "nodemon index.js",
-    "test": "jest"
+    "server": "nodemon index.js",
+    "test": "jest",
+    "seed": "node db/seeddb.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.15.3",
@@ -41,6 +43,8 @@
     "jest": "^24.5.0",
     "jest-environment-enzyme": "^7.0.2",
     "nodemon": "^1.18.10",
+    "style-loader": "^0.23.1",
+    "supertest": "^4.0.2",
     "webpack-cli": "^3.3.0"
   },
   "dependencies": {
@@ -48,6 +52,7 @@
     "@babel/polyfill": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "@svgr/cli": "^4.1.0",
     "babel-core": "^6.26.3",
     "body-parser": "^1.18.3",
     "date-fns": "^1.30.1",

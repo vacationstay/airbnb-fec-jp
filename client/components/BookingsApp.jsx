@@ -2,55 +2,60 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import moment from 'moment';
+import { CalendarHeader } from './CalenderHeader.jsx';
 import './styles.css';
 
-export default class Calendar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            dates: null,
-            selectMonthCalendar: []
-        }
-        this.getDateInfoForSelectedYear = this.getDateInfoForSelectedYear.bind(this);
-        this.determineStructureOfCalendarForSelectedMonth = this.determineStructureOfCalendarForSelectedMonth.bind(this);
-        this.buildCalendarRowForSelectedMonth = this.buildCalendarRowForSelectedMonth.bind(this);
-    }
-    componentDidMount() {
-        this.getDateInfoForSelectedYear(moment().year());
-    }
-    getDateInfoForSelectedYear(year) {
-        var dateReferenceHolder = [];
-        const monthNames = moment.months();
-        for (var i = 0; i < monthNames.length; i++) {
-            var fullMonthName = monthNames[i];
-            var firstDayName = moment().month(i).startOf('month').format('dddd');
-            var daysInMonth = moment().month(i).daysInMonth();
-            dateReferenceHolder.push([fullMonthName, firstDayName, daysInMonth]);
-        }
-        this.setState({
-            dates: dateReferenceHolder
-        }, () => (this.determineStructureOfCalendarForSelectedMonth()));
-    }
-    determineStructureOfCalendarForSelectedMonth() {
-      // TESTMONTH AS PLACEHOLDER FOR INFO DERIVED FROM USER INPUT
-      var testMonth = 2;
 
-      const weekDays = moment.weekdays();
-      var offSet = weekDays.indexOf(this.state.dates[testMonth][1]);
-      var monthLen = this.state.dates[testMonth][2];
-      var rowAmount = Math.ceil(((offSet + monthLen) / 7));
-      var calendar = [];
-      var curDay = 1;
-      for (var i = 0; i < rowAmount; i++) {
-        calendar.push(this.buildCalendarRowForSelectedMonth(i, offSet, curDay, monthLen));
-        if (!i) {
-          curDay += (7 - offSet);
-        } else {
-          curDay += 7;
-        }
+export default class Calendar extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        dates: [],
+        selectMonthCalendar: [],
+        selectDates: []
       }
-      this.setState({ selectMonthCalendar: calendar });
+      this.getDateInfoForSelectedYear = this.getDateInfoForSelectedYear.bind(this);
+      this.determineStructureOfCalendarForSelectedMonth = this.determineStructureOfCalendarForSelectedMonth.bind(this);
+      this.buildCalendarRowForSelectedMonth = this.buildCalendarRowForSelectedMonth.bind(this);
+  }
+  componentDidMount() {
+      this.getDateInfoForSelectedYear(moment().year());
+  }
+  getDateInfoForSelectedYear(year) {
+    var dateReferenceHolder = [];
+    const monthNames = moment.months();
+    const selectYear = moment().year();
+    const month = moment().get('month');
+    const selectMonth = monthNames[month];
+
+    for (var i = 0; i < monthNames.length; i++) {
+      var fullMonthName = monthNames[month];
+      var firstDayName = moment().month(month).startOf('month').format('dddd');
+      var daysInMonth = moment().month(month).daysInMonth();
+      dateReferenceHolder.push([fullMonthName, firstDayName, daysInMonth]);
     }
+    this.setState({
+      dates: dateReferenceHolder,
+      selectDates: [selectMonth, selectYear]
+    }, () => (this.determineStructureOfCalendarForSelectedMonth(month)));
+  }
+  determineStructureOfCalendarForSelectedMonth(month) {
+    const weekDays = moment.weekdays();
+    var offSet = weekDays.indexOf(this.state.dates[month][1]);
+    var monthLen = this.state.dates[month][2];
+    var rowAmount = Math.ceil(((offSet + monthLen) / 7));
+    var calendar = [];
+    var curDay = 1;
+    for (var i = 0; i < rowAmount; i++) {
+      calendar.push(this.buildCalendarRowForSelectedMonth(i, offSet, curDay, monthLen));
+      if (!i) {
+        curDay += (7 - offSet);
+      } else {
+        curDay += 7;
+      }
+    }
+    this.setState({ selectMonthCalendar: calendar });
+  }
   buildCalendarRowForSelectedMonth(curRow, offSet, curCalDayNum, monthLen) {
     var calRowVals = [];
       for (var i = 0; i < 7; i += 1) {
@@ -71,18 +76,25 @@ export default class Calendar extends React.Component {
   var calendarStructure = this.state.selectMonthCalendar;
   var calendar = calendarStructure.map(days => <CalendarRow days={days} />);
     
-  return (
-    <div>
+    return (
+      <div className='calContainer'>
+        <div >
+          <CalendarHeader selectDates={this.state.selectDates}/>
+        </div>
+        <div >
           {calendar}
+        </div>
       </div>
   )
   }
 }
+
 function CalendarCell(props) {
   return (
       <div className='calDay'>{props.day}</div>
   )
 }
+
 function CalendarRow(props) {
   return (
     <div className='calRow'>
