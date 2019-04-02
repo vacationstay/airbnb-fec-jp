@@ -1,21 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import dataFns from 'date-fns';
 import moment from 'moment';
+import './styles.css';
 
-// export default class Booking extends React.Component {
-//     constructor(props) {
-//         super(props);
-//     }
-//     render() {
-//         return (
-//             <div className='butts'>test</div>
-//         )
-//     }
-// }
-
-class Calendar extends React.Component {
+export default class Calendar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,95 +19,77 @@ class Calendar extends React.Component {
         this.getDateInfoForSelectedYear(moment().year());
     }
     getDateInfoForSelectedYear(year) {
-        // format for holder: [[monthName, weekdayOfFirstDay, daysInMonth], [monthName, weekdayOfFirstDay, daysInMonth] ...]
         var dateReferenceHolder = [];
-        const monthsRef = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        for (var i = 0; i < 12; i++) {
-            var month = monthsRef[i];
-            var first = moment().month(i).startOf('month').format('dddd');
-            var last = moment().month(i).daysInMonth();
-            dateReferenceHolder.push([month, first, last]);
+        const monthNames = moment.months();
+        for (var i = 0; i < monthNames.length; i++) {
+            var fullMonthName = monthNames[i];
+            var firstDayName = moment().month(i).startOf('month').format('dddd');
+            var daysInMonth = moment().month(i).daysInMonth();
+            dateReferenceHolder.push([fullMonthName, firstDayName, daysInMonth]);
         }
         this.setState({
             dates: dateReferenceHolder
         }, () => (this.determineStructureOfCalendarForSelectedMonth()));
     }
     determineStructureOfCalendarForSelectedMonth() {
-        // TO DO selected month will either need to be passed in or saved in state
-        var i = 2;
-        // TEMP MONTH i FOR TEST
-        const dowRef = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        var offSet = dowRef.indexOf(this.state.dates[i][1]);
-        var monthLen = this.state.dates[i][2];
-        var rowAmount = Math.ceil(((offSet + monthLen) / 7));
-        var calendar = [];
-        var curDay = 1;
-        for (var i = 0; i < rowAmount; i++) {
-            //need to debug infinite loop here - removed method invoke to avoid break
-            if (i) {
-                console.log('create first row called');
-                // calendar.push(this.buildCalendarRowForSelectedMonth(curDay, offSet));
-                curDay += (7 - offSet);
-            } else if (i === rowAmount - 1) {
-                
-                console.log('create last row called');
-                // calendar.push(this.buildCalendarRowForSelectedMonth(curDay, null, monthLen));
-            } else {
-                console.log('create other row called');
-                // calendar.push(this.buildCalendarRowForSelectedMonth(curDay, null));
-                curDay += 7;
-            }
-        }
-        this.setState({ selectMonthCalendar: calendar });
-    }
-    // open to debug - 
-    buildCalendarRowForSelectedMonth(curNum, offSet, lastRowDay) {
-        var row = [];
-        if (offSet) {
-            for (var i = 0; i < 7; i++) {
-                if (i < offSet) {
-                    row.push(<CalendarCell num={ null } />);
-                } else {
-                    row.push(<CalendarCell num={curNum} />);
-                } 
-                curNum++;
-                console.log('hit 1');
-            }
-            row.push(<br></br>);
-            return row;
-        } else if (lastRowDay) {
-            for (var i = curNum; i < lastRowDay; i++) {
-                row.push(<CalendarCell num={curNum} />);
-                curNum++;
-                console.log('hit 1');
-            }
-            row.push(<br></br>);
-            return row;
+      // TESTMONTH AS PLACEHOLDER FOR INFO DERIVED FROM USER INPUT
+      var testMonth = 2;
+
+      const weekDays = moment.weekdays();
+      var offSet = weekDays.indexOf(this.state.dates[testMonth][1]);
+      var monthLen = this.state.dates[testMonth][2];
+      var rowAmount = Math.ceil(((offSet + monthLen) / 7));
+      var calendar = [];
+      var curDay = 1;
+      for (var i = 0; i < rowAmount; i++) {
+        calendar.push(this.buildCalendarRowForSelectedMonth(i, offSet, curDay, monthLen));
+        if (!i) {
+          curDay += (7 - offSet);
         } else {
-            for (var i = curNum; i < curNum + 7; i++) {
-                row.push(<CalendarCell num={curNum} />);
-                curNum++;
-            }
-            row.push(<br></br>);
-            return row;
+          curDay += 7;
         }
+      }
+      this.setState({ selectMonthCalendar: calendar });
     }
-    render() {
-        var calendar = this.state.selectMonthCalendar;
-        return (
-            <div>
-                {calendar}
-            </div>
-        )
-    }
+  buildCalendarRowForSelectedMonth(curRow, offSet, curCalDayNum, monthLen) {
+    var calRowVals = [];
+      for (var i = 0; i < 7; i += 1) {
+        curRow ? offSet = 0 : offSet;
+        if (offSet) {
+          calRowVals.push(null);
+          offSet -= 1;
+        } else if (curCalDayNum > monthLen) { 
+          calRowVals.push(null);
+        } else {
+          calRowVals.push(curCalDayNum);
+          curCalDayNum += 1;
+        }  
+      }
+    return calRowVals;
+  }
+  render() {
+  var calendarStructure = this.state.selectMonthCalendar;
+  var calendar = calendarStructure.map(days => <CalendarRow days={days} />);
+    
+  return (
+    <div>
+          {calendar}
+      </div>
+  )
+  }
 }
 function CalendarCell(props) {
-    return (
-        <div>{props.num}</div>
-    )
+  return (
+      <div className='calDay'>{props.day}</div>
+  )
 }
-export {
-    Calendar
+function CalendarRow(props) {
+  return (
+    <div className='calRow'>
+    <CalendarCell day={props.days[0]} /> <CalendarCell day={props.days[1]} /> <CalendarCell day={props.days[2]} /> <CalendarCell day={props.days[3]} />
+      <CalendarCell day={props.days[4]} /> <CalendarCell day={props.days[5]} /> <CalendarCell day={props.days[6]} /> 
+    </div>
+  )
 }
 
 

@@ -1,5 +1,6 @@
 // import { Calendar } from './components/BookingsApp.jsx';
-import TestC from './components/testC.jsx';
+// import Calendar from './components/BookingsApp.jsx';
+import { BookingContainer } from './components/BookingContainer.jsx';
 
-window.TestC = TestC;
+window.BookingContainer = BookingContainer;
 // window.CalendarCell = CalendarCell;

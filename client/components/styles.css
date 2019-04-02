@@ -1,0 +1,22 @@
+html {
+    box-sizing: border-box;
+    font-family: Helvetica, "sans-serif";
+    font-size: 14px;
+}
+
+.calRow {
+    border: 2px solid black;
+    display: block;
+    box-sizing: border-box;
+    width: 16%;
+    height: 2%; 
+}
+
+.calDay {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box; 
+    width: 12%;
+    height: 15%; 
+}
