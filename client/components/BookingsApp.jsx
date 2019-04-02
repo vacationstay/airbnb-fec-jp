@@ -25,7 +25,11 @@ export default class Calendar extends React.Component {
     var dateReferenceHolder = [];
     const monthNames = moment.months();
     const selectYear = moment().year();
-    const month = moment().get('month');
+    // TEMP FOR TEST
+    // open to create an extend cal method for 40px
+    
+    const month = 1;
+    // const month = moment().get('month');
     const selectMonth = monthNames[month];
 
     for (var i = 0; i < monthNames.length; i++) {
@@ -81,7 +85,7 @@ export default class Calendar extends React.Component {
         <div >
           <CalendarHeader selectDates={this.state.selectDates}/>
         </div>
-        <div >
+        <div className='calInner'>
           {calendar}
         </div>
       </div>
