@@ -1,3 +1,3 @@
-import { App } from './components/App.jsx';
+import { BookingContainer } from './components/BookingContainer.jsx';
 
-window.App = App;
+window.BookingContainer = BookingContainer;

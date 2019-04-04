@@ -7,7 +7,7 @@ function Calendar(props) {
     return (
       <div className='calContainer'>
         <div >
-          <CalendarHeader selectDates={props.selectDates}/>
+          <CalendarHeader buildCalendarRowForSelectedMonth={props.buildCalendarRowForSelectedMonth} determineStructureOfCalendarForSelectedMonth={props.determineStructureOfCalendarForSelectedMonth} onCalendarChangeClick={props.onCalendarChangeClick} selectDates={props.selectDates}/>
         </div>
         <div className='calInner'>
           {props.calendar}

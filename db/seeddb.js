@@ -15,7 +15,7 @@ const insertFakeBookingsInfo = () => {
     const sampleCheckin = checkin();
     const checkout = () => (faker.date.between(moment(sampleCheckin).add(1, 'days'), moment(sampleCheckin).add(rand(1, 7), 'days')));
     const sampleCheckout = checkout();
-    const sampleAvail = rand(1, 100); >
+    const sampleAvail = rand(1, 100); 
 
     const fake = {
       room_id: i,
