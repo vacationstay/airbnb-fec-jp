@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles.css';
 import { PriceRatingBanner } from './PriceRatingBanner.jsx';
 import { DateRangePicker } from './DateRangePicker.jsx';
 import { Calendar } from './Calendar.jsx';
@@ -23,8 +21,6 @@ function Booking (props) {
             </div> 
           </div>
         </div>
-        {/* WILL NEED TO REPOSITION THIS */}
-
       </div>
       <div>
         <Calendar buildCalendarRowForSelectedMonth={props.buildCalendarRowForSelectedMonth} determineStructureOfCalendarForSelectedMonth={props.determineStructureOfCalendarForSelectedMonth} onCalendarChangeClick={props.onCalendarChangeClick} calendar={props.calendar} selectDates={props.selectDates} />

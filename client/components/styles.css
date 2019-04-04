@@ -116,6 +116,9 @@ html {
     color: #484848;
     border: 1px double rgb(228, 231, 231);
 }
+.calDayNull {
+    border: none;
+}
 /* CALENDAR */
 .calInner {
     text-align: center;
@@ -132,6 +135,9 @@ html {
     display: inline-block;
     border-radius: 3px;
     position: absolute;
+}
+.calXL {
+    height: 348px !important;
 }
 /* CALENDAR HEADER */
 .calHead {

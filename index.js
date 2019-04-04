@@ -4,7 +4,8 @@ const parser = require('body-parser');
 
 const port = 9000;
 const app = express();
-const { db, Booking } = require('./db/index');
+const { db } = require('./db/index');
+const { Booking } = require('./db/models/booking');
 
 app.use(express.static('public'));
 app.use(parser.urlencoded({ extended: true }));

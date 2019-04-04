@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import moment from 'moment';
-import './styles.css';
 
 function CalendarHeader(props) {
   const daysOfWeek = moment.weekdaysMin();
@@ -20,7 +18,7 @@ function CalendarHeader(props) {
           <div className='calHeadBanner'>
             <strong>{props.selectDates[0]} {props.selectDates[1]}</strong>
           </div>
-          <div className='calHeadBtn calHeadRight'><SvgArrowRight className='svg' /></div>
+          <div className='calHeadBtn calHeadRight' onClick={() => props.onCalendarChangeClick(true)}><SvgArrowRight className='svg' /></div>
         </div>
       </div>
     </div>

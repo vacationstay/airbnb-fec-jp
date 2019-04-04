@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { CalendarCell } from './CalendarCell.jsx';
-import './styles.css';
 
 function CalendarRow(props) {
   console.log('row rerender called. the value was ', props.days);

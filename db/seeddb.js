@@ -1,7 +1,8 @@
 const moment = require('moment');
 const faker = require('faker');
 const mongoose = require('mongoose');
-const { Booking, db } = require('./index.js');
+const { Booking } = require('./models/booking.js');
+const { db } = require('./index.js');
 
 // FAKE BOOKING INFO INSERTION FUNC
 // eslint-disable-next-line no-unused-vars

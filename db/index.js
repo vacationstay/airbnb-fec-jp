@@ -2,19 +2,13 @@
 const mongoose = require('mongoose');
 
 const dbURL = 'mongodb://localhost/reservations';
-const db = mongoose.connect(dbURL, { useNewUrlParser: true });
+mongoose.connect(dbURL, { useNewUrlParser: true });
 
-const bookingSchema = mongoose.Schema({
-  room_id: Number,
-  checkin: Date,
-  checkout: Date,
-  guests: Number,
-  availabilityScore: Number,
-});
+const db = mongoose.connection;
 
-const Booking = mongoose.model('booking', bookingSchema);
+db.on('error', error => console.log('connection error:', error));
+db.once('open', () => console.log('connected to mongodb!'));
 
 module.exports = {
-  Booking,
   db,
 };

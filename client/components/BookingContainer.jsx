@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import moment from 'moment';
-import './styles.css';
 import { CalendarRow } from './CalendarRow.jsx';
 import { Booking } from './Booking.jsx';
 
@@ -46,15 +44,14 @@ class BookingContainer extends React.Component {
         this.modelAvailabilityForSelectedRoom(res.availabilityScore);
       });
   }
-  onCalendarChangeClick() {
-    const monthNames = moment.months(direction);
+  onCalendarChangeClick(direction) {
+    const monthNames = moment.months();
     var modifier;
     if (direction) {
       modifier = 1;
     } else {
       modifier = -1;
     }
-    
     const indexOfMonthToBeRendered = monthNames.indexOf(this.state.selectDates[0]) + modifier;
     console.log(indexOfMonthToBeRendered);
     const selectMonth = monthNames[indexOfMonthToBeRendered];
@@ -130,7 +127,6 @@ class BookingContainer extends React.Component {
     });
   }
   determineStructureOfCalendarForSelectedMonth(month) {
-    console.log('hit');
     const weekDays = moment.weekdays();
     var offSet = weekDays.indexOf(this.state.dates[month][1]);
     var monthLen = this.state.dates[month][2];
@@ -138,7 +134,6 @@ class BookingContainer extends React.Component {
     var calendar = [];
     var curDay = 1;
     for (var i = 0; i < rowAmount; i++) {
-      console.log('hit2');
       calendar.push(this.buildCalendarRowForSelectedMonth(i, offSet, curDay, monthLen));
       if (!i) {
         curDay += (7 - offSet);
@@ -146,8 +141,6 @@ class BookingContainer extends React.Component {
         curDay += 7;
       }
     }
-    console.log('hit3');
-    console.log(calendar);
     this.setState({ selectMonthCalendar: calendar });
   }
   buildCalendarRowForSelectedMonth(curRow, offSet, curCalDayNum, monthLen) {
