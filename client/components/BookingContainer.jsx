@@ -23,7 +23,6 @@ class BookingContainer extends React.Component {
   componentDidMount() {
     this.getDateInfoForSelectedYear(moment().year());
     this.getDummyAvailabilityFigureForRoom();
-
   }
   getDummyAvailabilityFigureForRoom() {
     /* 
@@ -41,6 +40,7 @@ class BookingContainer extends React.Component {
     })
       .done((res) => {
         res = JSON.parse(res);
+        console.log(res.availabilityScore);
         this.modelAvailabilityForSelectedRoom(res.availabilityScore);
       });
   }
@@ -53,19 +53,15 @@ class BookingContainer extends React.Component {
       modifier = -1;
     }
     const indexOfMonthToBeRendered = monthNames.indexOf(this.state.selectDates[0]) + modifier;
-    console.log(indexOfMonthToBeRendered);
     const selectMonth = monthNames[indexOfMonthToBeRendered];
-    // this.determineStructureOfCalendarForSelectedMonth(indexOfMonthToBeRendered);
-  
-    // find a better way to set the year dynamically
+
     this.setState({
-      selectDates: [selectMonth, 2019]
+      selectDates: [selectMonth, this.state.selectDates[1]]
     }, () => {
         this.determineStructureOfCalendarForSelectedMonth(indexOfMonthToBeRendered);
     });
   }
   modelAvailabilityForSelectedRoom(availabilityFigure) {
-    // low availability scores make for boring bookings
     if (availabilityFigure < 30) {
       availabilityFigure += 30;
     }
@@ -142,6 +138,7 @@ class BookingContainer extends React.Component {
       }
     }
     this.setState({ selectMonthCalendar: calendar });
+    
   }
   buildCalendarRowForSelectedMonth(curRow, offSet, curCalDayNum, monthLen) {
   var calRowVals = [];
@@ -161,11 +158,8 @@ class BookingContainer extends React.Component {
   }
   
   render() {
-    console.log('rerender');
     var calendarStructure = this.state.selectMonthCalendar;
-    console.log('rerendered new cal is ', calendarStructure);
     var calendar = calendarStructure.map(days => <CalendarRow availabilityModel={this.state.availabilityModel} days={days} />);
-
     return (
       <div>
         <div >

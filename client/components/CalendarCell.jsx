@@ -11,7 +11,6 @@ function CalendarCell(props) {
     }
     return classStr;
   }
-
   return (
     <div className={determineCalDayClass(props.day, booked)} >{props.day}</div>
   )

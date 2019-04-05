@@ -2,7 +2,6 @@ import React from 'react';
 import { CalendarCell } from './CalendarCell.jsx';
 
 function CalendarRow(props) {
-  console.log('row rerender called. the value was ', props.days);
   return (
     <div className='calRow'>
       <CalendarCell availabilityModel={props.availabilityModel[props.days[0] - 1]} day={props.days[0]} /> <CalendarCell availabilityModel={props.availabilityModel[props.days[1] - 1]} day={props.days[1]} /> <CalendarCell availabilityModel={props.availabilityModel[props.days[2] - 1]} day={props.days[2]} /> <CalendarCell availabilityModel={props.availabilityModel[props.days[3] - 1]} day={props.days[3]} />
