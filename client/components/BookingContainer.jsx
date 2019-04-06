@@ -12,6 +12,9 @@ class BookingContainer extends React.Component {
       selectMonthCalendar: [],
       selectDates: [],
       availabilityModel: [],
+      showCal: false,
+      currentShow: null,
+      guests: [1,0,0]
     }
     this.getDateInfoForSelectedYear = this.getDateInfoForSelectedYear.bind(this);
     this.determineStructureOfCalendarForSelectedMonth = this.determineStructureOfCalendarForSelectedMonth.bind(this);
@@ -19,6 +22,9 @@ class BookingContainer extends React.Component {
     this.getDummyAvailabilityFigureForRoom = this.getDummyAvailabilityFigureForRoom.bind(this);
     this.modelAvailabilityForSelectedRoom = this.modelAvailabilityForSelectedRoom.bind(this);
     this.onCalendarChangeClick = this.onCalendarChangeClick.bind(this);
+    this.onShowOrHideCalClick = this.onShowOrHideCalClick.bind(this);
+    this.onGuestCountChangeClick = this.onGuestCountChangeClick.bind(this);
+    this.onGuestMenuExpandClick = this.onGuestMenuExpandClick.bind(this);
   }
   componentDidMount() {
     this.getDateInfoForSelectedYear(moment().year());
@@ -60,6 +66,33 @@ class BookingContainer extends React.Component {
     }, () => {
         this.determineStructureOfCalendarForSelectedMonth(indexOfMonthToBeRendered);
     });
+  }
+  onShowOrHideCalClick(e) {
+    /* open to add logic for clicks outside */
+    var showCal = this.state.showCal;
+    var currentShow = this.state.currentShow;
+    var nextShow;
+    if (currentShow) {
+      currentShow === 'Check-in' ? nextShow = 'Checkout' : nextShow = 'Check-in';
+    }
+    const id = e.target.id;
+
+    if (currentShow && (id !== currentShow)) {
+      currentShow = nextShow;
+    } else {
+      currentShow = id;
+      showCal = !showCal;
+    }
+    this.setState({
+      showCal: showCal,
+      currentShow: currentShow
+    })
+  }
+  onGuestCountChangeClick() {
+
+  }
+  onGuestMenuExpandClick() {
+
   }
   modelAvailabilityForSelectedRoom(availabilityFigure) {
     if (availabilityFigure < 30) {
@@ -104,8 +137,6 @@ class BookingContainer extends React.Component {
     var dateReferenceHolder = [];
     const monthNames = moment.months();
     const selectYear = moment().year();
-    /* the var below is temporary for testing */
-    // const month = 5;
     const month = moment().get('month');
     const selectMonth = monthNames[month];
 
@@ -159,14 +190,28 @@ class BookingContainer extends React.Component {
   
   render() {
     var calendarStructure = this.state.selectMonthCalendar;
-    var calendar = calendarStructure.map(days => <CalendarRow availabilityModel={this.state.availabilityModel} days={days} />);
+    var calendar = calendarStructure.map(days => (
+      <CalendarRow availabilityModel={this.state.availabilityModel} days={days} />
+    ));
     return (
       <div>
-        <div >
-          <Booking buildCalendarRowForSelectedMonth={this.buildCalendarRowForSelectedMonth} determineStructureOfCalendarForSelectedMonth={this.determineStructureOfCalendarForSelectedMonth} onCalendarChangeClick={this.onCalendarChangeClick} selectDates={this.state.selectDates} calendar={calendar}/>
+        <div>
+          <Booking
+            onGuestCountChangeClick={this.onGuestCountChangeClick}
+            onGuestMenuExpandClick={this.onGuestMenuExpandClick}
+            guests={this.state.guests}
+            currentShow={this.state.currentShow}
+            showCal={this.state.showCal}
+            onShowOrHideCalClick={this.onShowOrHideCalClick}
+            buildCalendarRowForSelectedMonth={this.buildCalendarRowForSelectedMonth}
+            determineStructureOfCalendarForSelectedMonth={this.determineStructureOfCalendarForSelectedMonth}
+            onCalendarChangeClick={this.onCalendarChangeClick}
+            selectDates={this.state.selectDates}
+            calendar={calendar}
+          />
         </div>
       </div>
-    )
+    );
   }
 }
 

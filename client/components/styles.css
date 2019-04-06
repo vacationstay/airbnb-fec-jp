@@ -52,6 +52,9 @@ html {
     margin-top: 16px;
     margin-bottom: 8px;
 }
+.bookingFormFieldGuestMargin {
+    margin-bottom: 16px;
+}
 /* DATE RANGE PICKER */
 .DRPcheckinCheckout {
     width: 326px;
@@ -66,6 +69,7 @@ html {
 }
 .DRPcheckinCheckoutTR {
     display: table-row;
+
 }
 .DRPcheckinTableCell {
     display: table-cell;
@@ -84,12 +88,28 @@ html {
     width: 100%;
     vertical-align: middle;
     margin: 0px;
-    padding: 8px;
     background: rgb(255, 255, 255)
 
 }
+.DRPInputOutput {
+    font-size: 16px;
+    width: 150px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+}
+.DRPInputOutputArrow {
+    display: table-cell !important;
+    vertical-align: middle !important;
+    width: 24px !important;
+    height: 100%;
+    
+}
 .DRPcheckoutPad {
 
+}
+
+.DRPCalHide {
+    display: none;
 }
 /* CALENDAR ROW */
 .calRow {
@@ -135,6 +155,29 @@ html {
     display: inline-block;
     border-radius: 3px;
     position: absolute;
+    top: 50px;
+    z-index: 3;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 6px,
+    rgba(0, 0, 0, 0.07) 0px 0px 0px 1px;
+}
+.arrow-top-cal_svg___dpszbt {
+    position: absolute !important;
+    width: 20px !important;
+    height: 10px !important;
+    left: 22px;
+    z-index: 2 !important;
+    top: 40px !important;
+}
+.arrow-top-cal_svg___dpszbt-right {
+    left: 196px !important;
+}
+.arrow-top-cal_svg___whdw9f {
+    fill: rgb(255, 255, 255) !important;
+}
+.arrow-top-cal_svg___c3dsty {
+    stroke: rgb(235, 235, 235) !important;
+    fill: transparent !important;
 }
 .calXL {
     height: 348px !important;
@@ -182,6 +225,22 @@ strong {
     vertical-align: middle;
     color: rgb(72, 72, 72);
 }
+input {
+    border: none !important;
+}
+span {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.33333em !important;
+    color: rgb(72, 72, 72) !important;
+    margin: 0px !important;
+}
+label {
+    font-size: 17px !important;
+    font-weight: 200 !important;
+    margin: 0px !important;
+    padding: 0px 0px 4px !important;
+}
 .calHeadBanner {
     display: block;
     text-align: center;
@@ -211,4 +270,77 @@ strong {
     padding: 6px 9px;
     display: block;
     color: rgb(117, 117, 117);
+}
+.PRBDividerContainer {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.PRBDivider {
+    width: 326px;
+    border-top: 1px solid #EBEBEB;
+
+}
+.PRBPriceBanner {
+    display: inline-block;
+}
+.PRBPriceHead {
+    font-weight: 800 !important;
+    line-height: 1.44444em !important;
+    color: rgb(72, 72, 72) !important;
+    font-size: 22px !important;
+}
+.PRBRatingStar {
+    display: inline-block !important;
+    color: rgb(0, 132, 137) !important;
+    font-size: 9px !important;
+    height: 10px !important;
+    margin-right: 1px !important;
+    width: 9px !important;
+}
+.PRBRatingCount {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.33333em !important;
+    color: rgb(72, 72, 72) !important;
+    margin: 0px !important;
+}
+
+/* GUESTS */
+.guestFieldInner {
+    width: 100% !important;
+    position: relative !important;
+}
+.guestButton {
+    text-align: left !important;
+    line-height: normal !important;
+    display: block !important;
+    width: 100% !important;
+    background: rgb(255, 255, 255) !important;
+    border-radius: 2px !important;
+    padding: 8px !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(235, 235, 235) !important;
+    border-image: initial !important;
+}
+.guestButtonInner {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.guestButtonText {
+    margin: 0px;
+    word-wrap: break-word;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.375em;
+    color: #484848 !important;
+}
+.guestButtonTable {
+    display: table;
+    width: 100%;
+}
+.guestButtonTableCell {
+    display: cell;
+    width: 100%;
+    vertical-align: middle;
 }
