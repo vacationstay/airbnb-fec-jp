@@ -1,7 +1,7 @@
 import { shallow, mount } from 'enzyme';
 import React from 'react';
-import { CalendarRow } from '../client/components/CalendarRow';
-import { CalendarCell } from '../client/components/CalendarCell';
+import { CalendarRow } from '../client/src/components/CalendarRow';
+import { CalendarCell } from '../client/src/components/CalendarCell';
 
 
 describe('<CalendarRow/>', () => {

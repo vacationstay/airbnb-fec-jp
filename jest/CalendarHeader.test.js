@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme';
 import React from 'react';
-import { CalendarHeader } from '../client/components/CalenderHeader';
+import { CalendarHeader } from '../client/src/components/CalenderHeader';
 
 describe('<CalendarHeader/>', () => {
   test('should register clicks to change calendar to previous month', () => {

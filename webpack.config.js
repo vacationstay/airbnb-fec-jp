@@ -2,8 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  context: `${__dirname }/client`,
-  entry: './index.js',
+  entry: path.resolve(__dirname, 'client/src/index.js'),
   module: {
     rules: [{
       test: [/\.jsx$/],
@@ -21,7 +20,7 @@ module.exports = {
     }],
   },
   output: {
-    path: `${__dirname  }/public`,
+    path: path.resolve(__dirname, 'client/dist'),
     filename: 'app.js',
   },
 };
