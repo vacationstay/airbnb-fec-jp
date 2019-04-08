@@ -1,7 +1,7 @@
-// import { shallow } from 'enzyme';
-// import React from 'react';
-// import { Calendar } from '../client/src/components/Calendar';
-// import { CalendarHeader } from '../client/src/components/CalenderHeader';
+import { shallow } from 'enzyme';
+import React from 'react';
+import { Calendar } from '../client/src/components/Calendar';
+import { CalendarHeader } from '../client/src/components/CalenderHeader';
 
 // describe('<Calendar/>', () => {
 //   test('applies appropriate class when the calendar month requires 6 rows', () => {
