@@ -39,7 +39,6 @@ class BookingContainer extends React.Component {
       method: 'GET'
     })
       .done((res) => {
-        console.log(res);
         res = JSON.parse(res);
         this.modelAvailabilityForSelectedRoom(res.availabilityScore);
       });

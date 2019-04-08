@@ -1,30 +1,83 @@
+    
 import React from 'react';
-
+import { CalendarHeader } from './CalenderHeader.jsx';
+import { SvgArrowTopCal } from './SvgComponents.jsx';
+import { SvgArrowCalendar } from './SvgComponents.jsx';
 
 function DateRangePicker(props) {
-    return (
-        <div>
-            {/* open to add label for date picker */}
-            <div className='DRPcheckinCheckout'>
-                <div className='DRPcheckinCheckoutBorder'>
-                    <div className='DRPcheckinCheckoutTR'>
-                        <div className='DRPcheckinTableCell'>
-                            <div className='DRPcheckinCheckoutPad'>
-                                <input type='text' label='Check-in' placeholder='Check-in'></input>
-                            </div>
-                        </div>
-                        <div className='DRPcheckoutTableCell'>
-                            <div className='DRPcheckinCheckoutPad'>
-                                <input type='text' label='Check-out' placeholder='Check-out'></input>
-                            </div>                       
-                        </div>
+  return (
+    <div>
+      <div>
+        <label>
+          <span>Dates</span>
+        </label>
+      </div>
+      <div className="DRPcheckinCheckout">
+        <div className="DRPcheckinCheckoutBorder">
+          <div className="DRPcheckinCheckoutTR">
+            <div className="DRPcheckinTableCell">
+              <div className="DRPcheckinCheckoutPad">
+                <input
+                  className='DRPInputOutput'
+                  id='Check-in'
+                  type="text"
+                  label="Check-in"
+                  placeholder="Check-in"
+                  onClick={(e) => props.onShowOrHideCalClick(e)}
+                />
+                
+                <div
+                  className={
+                    props.showCal
+                      ? ''
+                      : 'DRPCalHide'}
+                >
+                  <SvgArrowTopCal currentShow={props.currentShow} />
+                    <div
+                      className={
+                        props.calendar.length === 6
+                          ? "calContainer calXL"
+                          : "calContainer"
+                      }
+                  >
+                      <div>
+                        <CalendarHeader
+                          buildCalendarRowForSelectedMonth={
+                            props.buildCalendarRowForSelectedMonth
+                          }
+                          determineStructureOfCalendarForSelectedMonth={
+                            props.determineStructureOfCalendarForSelectedMonth
+                          }
+                          onCalendarChangeClick={props.onCalendarChangeClick}
+                          selectDates={props.selectDates}
+                        />
+                      </div>
+                      <div className="calInner">{props.calendar}</div>
                     </div>
-
                 </div>
+              </div>
             </div>
-            {/* <Calendar calendar={props.calendar} selectDates={props.selectDates} /> */}
+            <div className='DRPInputOutputArrow'>
+              <SvgArrowCalendar/>
+            </div>
+            <div className="DRPcheckoutTableCell">
+              <div className="DRPcheckinCheckoutPad">
+                <input
+                  className='DRPInputOutput'
+                  id='Checkout'
+                  type="text"
+                  label="Checkout"
+                  placeholder="Checkout"
+                  onClick={(e) => props.onShowOrHideCalClick(e)}
+                />
+              </div>
+            </div>
+          </div>
         </div>
-    )  
+      </div>
+    </div>
+  );
+
 }
 
 export {
