@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { CalendarCell } from '../client/components/CalendarCell.jsx';
+import { CalendarCell } from '../client/src/components/CalendarCell.jsx';
 
 describe('<CalendarCell/>', () => {
   test('applies appropriate class for unbooked and non-calendar day', () => {

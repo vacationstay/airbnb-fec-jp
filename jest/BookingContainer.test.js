@@ -1,8 +1,8 @@
 import { shallow, mount } from 'enzyme';
 import React from 'react';
-import { BookingContainer } from '../client/components/BookingContainer';
-import { Booking } from '../client/components/Booking';
-import { CalendarRow } from '../client/components/CalendarRow';
+import { BookingContainer } from '../client/src/components/BookingContainer';
+import { Booking } from '../client/src/components/Booking';
+import { CalendarRow } from '../client/src/components/CalendarRow';
 // import { isTSAnyKeyword } from '@babel/types';
 
 describe('<BookingContainer/>', () => {
