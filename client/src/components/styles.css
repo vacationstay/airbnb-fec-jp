@@ -3,18 +3,6 @@
     margin: 0;
     padding: 0;
 }
-html {
-    box-sizing: border-box;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
-}
-
-/* BOOKING CONTAINER */
-/* .BCstyle {
-    margin-left: 45px;
-    width: 376px;
-    z-index: 3;
-} */
-
 /* BOOKING */
 .bookingOuter {
     position: fixed;
@@ -24,6 +12,17 @@ html {
     /* margin-left: 45px; */
     width: 376px;
     z-index: 3;
+}
+.bookingContainerTopLevel {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Circular,
+        -apple-system,
+        BlinkMacSystemFont,
+        Roboto,
+        Helvetica Neue,
+        sans-serif;
 }
 .bookingBorder {
     padding-left: 24px;
@@ -142,10 +141,6 @@ html {
     height: 100%;
     
 }
-.DRPcheckoutPad {
-
-}
-
 .DRPCalHide {
     display: none;
 }
@@ -254,30 +249,29 @@ html {
 .calHeadRight {
     right: 22px;
 }
-ul {
+.renderUl {
     top: 62px;
 }
-li {
+.liRender {
     display: inline-block;
 }
-strong {
+.strongRender {
     font-size: 18px;
     display: inline-block;
     vertical-align: middle;
     color: rgb(72, 72, 72);
 }
-input {
+.inputRender {
     border: none;
-
 }
-span {
+.spanRender {
     font-size: 12px !important;
     font-weight: 600 !important;
     line-height: 1.33333em !important;
     color: rgb(72, 72, 72) !important;
     margin: 0px !important;
 }
-label {
+.labelRender {
     font-size: 17px !important;
     font-weight: 200 !important;
     margin: 0px !important;

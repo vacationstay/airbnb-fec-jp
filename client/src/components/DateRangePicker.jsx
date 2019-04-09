@@ -8,8 +8,8 @@ function DateRangePicker(props) {
   return (
     <div>
       <div>
-        <label>
-          <span>Dates</span>
+        <label className='labelRender'>
+          <span className='spanRender'>Dates</span>
         </label>
       </div>
       <div className="DRPcheckinCheckout">
@@ -18,7 +18,7 @@ function DateRangePicker(props) {
             <div className="DRPcheckinTableCell">
               <div className="DRPcheckinCheckoutPad">
                 <input
-                  className='DRPInputOutput'
+                  className='inputRender DRPInputOutput'
                   id='Check-in'
                   type="text"
                   label="Check-in"
@@ -63,7 +63,7 @@ function DateRangePicker(props) {
             <div className="DRPcheckoutTableCell">
               <div className="DRPcheckinCheckoutPad">
                 <input
-                  className='DRPInputOutput'
+                  className='inputRender DRPInputOutput'
                   id='Checkout'
                   type="text"
                   label="Checkout"

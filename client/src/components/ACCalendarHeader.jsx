@@ -6,7 +6,7 @@ import { SvgArrowRight } from './SvgComponents.jsx';
 function ACCalendarHeader(props) {
   const daysOfWeek = moment.weekdaysMin();
   const renderDOW = daysOfWeek.map((day, i) => (
-    <li key={i} className="calHeadMonthYear">
+    <li className='liRender' key={i} className="calHeadMonthYear">
       {day}
     </li>
   ));
@@ -14,7 +14,7 @@ function ACCalendarHeader(props) {
     <div>
       <div>
         <div className="calHeadDays">
-          <ul>{renderDOW}</ul>
+          <ul className='renderUl'>{renderDOW}</ul>
         </div>
         <div className="calHeadWide">
           <div className="calHead">
@@ -25,7 +25,7 @@ function ACCalendarHeader(props) {
               <SvgArrowLeft className="svg" />
             </div>
             <div className="calHeadBanner">
-              <strong>
+              <strong className='strongRender'>
                 {props.selectDates[0]} {props.selectDates[1]}
               </strong>
             </div>
@@ -34,12 +34,12 @@ function ACCalendarHeader(props) {
       </div>
       <div>
         <div className="ACCalHeadDaysRight">
-          <ul>{renderDOW}</ul>
+          <ul className='renderUl'>{renderDOW}</ul>
         </div>
         <div className="ACCalHeadWideRight">
           <div className="ACCalHeadRight">
             <div className="ACCalHeadBanner">
-              <strong>
+              <strong className='strongRender'>
                 {props.selectDates[0]} {props.selectDates[1]}
               </strong>
             </div>

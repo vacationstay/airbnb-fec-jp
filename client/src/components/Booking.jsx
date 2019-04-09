@@ -47,7 +47,7 @@ function Booking(props) {
                 </div>
                 <div className="bookingBottomLabelMargin">
                   <div className="bookingBottomLabelInner">
-                    <span className="bookingBottomLabelInnerSpan">
+                    <span className="spanRender bookingBottomLabelInnerSpan">
                       You won’t be charged yet
                     </span>
                   </div>

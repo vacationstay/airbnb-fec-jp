@@ -5,30 +5,30 @@ function PriceRatingBanner(props) {
   return (
     <div>
       <div className="PRBPriceBanner">
-        <span>
-          <span className="PRBPriceHead">$66</span>
+        <span className="spanRender">
+          <span className="spanRender PRBPriceHead">$66</span>
         </span>
-        <span className="PRBPerNightHead"> per night</span>
+        <span className="spanRender PRBPerNightHead"> per night</span>
       </div>
       <div>
-        <span>
-          <span className="PRBRatingStar">
+        <span className="spanRender">
+          <span className="spanRender PRBRatingStar">
             <SvgRatingStar />
           </span>
-          <span className="PRBRatingStar">
+          <span className="spanRender PRBRatingStar">
             <SvgRatingStar />
           </span>
-          <span className="PRBRatingStar">
+          <span className="spanRender PRBRatingStar">
             <SvgRatingStar />
           </span>
-          <span className="PRBRatingStar">
+          <span className="spanRender PRBRatingStar">
             <SvgRatingStar />
           </span>
-          <span className="PRBRatingStar">
+          <span className="spanRender PRBRatingStar">
             <SvgRatingStar />
           </span>
         </span>
-        <span className="PRBRatingCount">227</span>
+        <span className="spanRender PRBRatingCount">227</span>
       </div>
       <div className="PRBDividerContainer">
         <div className="PRBDivider" />

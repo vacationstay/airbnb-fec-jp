@@ -35,12 +35,15 @@ class BookingContainer extends React.Component {
   getDummyAvailabilityFigureForRoom() {
     const roomNum = window.location.pathname.split('/').filter((el) => !!el).pop();
     $.ajax({
-      url: `api/bookings/${roomNum}`,
+      url: `/api/bookings/${roomNum}`,
       method: 'GET'
     })
       .done((res) => {
-        res = JSON.parse(res);
+        // need to comment this out when im using the proxy since we dont need to parse it
+        // res = JSON.parse(res);
+        console.log(res.availabilityScore);
         this.modelAvailabilityForSelectedRoom(res.availabilityScore);
+        
       });
   }
   onCalendarChangeClick(direction) {
@@ -219,7 +222,7 @@ class BookingContainer extends React.Component {
       <CalendarRow key={i} availabilityModel={this.state.availabilityModel} days={days} />
     ));
     return (
-      <div>
+      <div className='bookingContainerTopLevel'>
         <div>
           <Booking
             onGuestCountChangeClick={this.onGuestCountChangeClick}

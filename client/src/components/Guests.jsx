@@ -8,8 +8,8 @@ function Guests(props) {
   const infantCount = props.guests[2];
   return (
     <div>
-      <label>
-        <span>Guests</span>
+      <label className='labelRender'>
+        <span className='spanRender'>Guests</span>
       </label>
       <div className='guestFieldOuter'>
         <div className='guestFieldInner'>
@@ -19,7 +19,7 @@ function Guests(props) {
                 <div className='guestButtonTable'>
                   <div className='guestButtonTableCell'>
                     <div>
-                      <span className='guestLabelStr'>{props.guests[3]}</span>
+                      <span className='spanRender guestLabelStr'>{props.guests[3]}</span>
                     </div>
                   </div>
                 </div>
@@ -46,7 +46,7 @@ function Guests(props) {
                           <div className='guestExpandContainerCellRightTable'>
                               <div className='guestExpandContainerInnerTableCellIncrement'>
                               <button className='incrementBtn' id='decA' type='button' onClick={e => props.onGuestCountChangeClick(e)}>
-                                  <span className='incrementBtnSpan'>
+                                  <span className='spanRender incrementBtnSpan'>
                                   <SvgGuestIncrement/>
                                   </span>
                                 </button>
@@ -56,7 +56,7 @@ function Guests(props) {
                               </div>
                             <div className='guestExpandContainerInnerTableCellDecrement'>
                               <button className='incrementBtn' id='incA' type='button' onClick={e => props.onGuestCountChangeClick(e)}>
-                                  <span className='incrementBtnSpan'>
+                                  <span className='spanRender incrementBtnSpan'>
                                     <SvgGuestIncrement2 />
                                   </span>
                                 </button>
@@ -80,7 +80,7 @@ function Guests(props) {
                           <div className='guestExpandContainerCellRightTable'>
                             <div className='guestExpandContainerInnerTableCellIncrement'>
                               <button className='incrementBtn' id='decC' type='button' onClick={e => props.onGuestCountChangeClick(e)}>
-                                <span className='incrementBtnSpan'>
+                                <span className='spanRender incrementBtnSpan'>
                                   <SvgGuestIncrement />
                                 </span>
                               </button>
@@ -90,7 +90,7 @@ function Guests(props) {
                             </div>
                             <div className='guestExpandContainerInnerTableCellDecrement'>
                               <button className='incrementBtn' id='incC' type='button' onClick={e => props.onGuestCountChangeClick(e)}>
-                                <span className='incrementBtnSpan'>
+                                <span className='spanRender incrementBtnSpan'>
                                   <SvgGuestIncrement2 />
                                 </span>
                               </button>
@@ -114,7 +114,7 @@ function Guests(props) {
                           <div className='guestExpandContainerCellRightTable'>
                             <div className='guestExpandContainerInnerTableCellIncrement'>
                               <button className='incrementBtn' id='decI' type='button' onClick={e => props.onGuestCountChangeClick(e)}>
-                                <span className='incrementBtnSpan'>
+                                <span className='spanRender incrementBtnSpan'>
                                   <SvgGuestIncrement />
                                 </span>
                               </button>
@@ -124,7 +124,7 @@ function Guests(props) {
                             </div>
                             <div className='guestExpandContainerInnerTableCellDecrement'>
                               <button className='incrementBtn' id='incI' type='button' onClick={e => props.onGuestCountChangeClick(e)}>
-                                <span className='incrementBtnSpan'>
+                                <span className='spanRender incrementBtnSpan'>
                                   <SvgGuestIncrement2 />
                                 </span>
                               </button>
