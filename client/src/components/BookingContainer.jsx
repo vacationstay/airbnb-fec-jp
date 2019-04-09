@@ -35,7 +35,7 @@ class BookingContainer extends React.Component {
   getDummyAvailabilityFigureForRoom() {
     const roomNum = window.location.pathname.split('/').filter((el) => !!el).pop();
     $.ajax({
-      url: `http://localhost:9000/api/rooms/${roomNum}`,
+      url: `api/bookings/${roomNum}`,
       method: 'GET'
     })
       .done((res) => {
@@ -118,9 +118,6 @@ class BookingContainer extends React.Component {
     e.preventDefault();
     var showGuest = this.state.showGuest;
     this.setState({ showGuest: !showGuest });
-
-
-
   }
   modelAvailabilityForSelectedRoom(availabilityFigure) {
     if (availabilityFigure < 30) {
