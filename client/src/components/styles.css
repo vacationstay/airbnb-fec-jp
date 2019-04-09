@@ -5,11 +5,9 @@
 }
 /* BOOKING */
 .bookingOuter {
-    position: fixed;
-    top: 75px;
-    /* temp reposition just to see both components during developement */
+    position: absolute;
+    top: 20px;
     margin-left: 800px;
-    /* margin-left: 45px; */
     width: 376px;
     z-index: 3;
 }
@@ -40,12 +38,6 @@
 .bookingContentArea {
     line-height: 1.43;
     color: #484848;
-}
-.bookingForm {
-
-}
-.bookingFormStandardFields {
-
 }
 .bookingFormFieldsTopMargin {
     margin-top: 16px;
@@ -91,6 +83,10 @@
     font-weight: 600 !important;
     line-height: 1.33333em !important;
     color: rgb(72, 72, 72) !important;
+ }
+ .bookingStickIt {
+     position: sticky;
+     top: 4rem;
  }
 /* DATE RANGE PICKER */
 .DRPcheckinCheckout {
@@ -577,8 +573,7 @@
     display: inline-block;
 }
 .ACSectionOffset {
-    /* temp for testing */
-    position: absolute;
+    position: relative;
     top: 50px;
     left:60px;
 
@@ -614,4 +609,8 @@
 .ACContentInfoBanner {
     margin-left:20px;
     margin-right:20px;
+}
+.ACContainer {
+    background: white;
+    width: 654px;
 }

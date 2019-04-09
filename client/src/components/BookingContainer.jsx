@@ -223,7 +223,7 @@ class BookingContainer extends React.Component {
     ));
     return (
       <div className='bookingContainerTopLevel'>
-        <div>
+        <div className='bookingStickIt'>
           <Booking
             onGuestCountChangeClick={this.onGuestCountChangeClick}
             onGuestMenuExpandClick={this.onGuestMenuExpandClick}
