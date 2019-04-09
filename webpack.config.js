@@ -22,6 +22,6 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'client/dist'),
-    filename: 'app.js',
+    filename: 'bundle.js',
   },
 };
