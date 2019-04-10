@@ -39,7 +39,7 @@ function Booking(props) {
                   </div>
                 </div>
                 <div className="bookingSubmitButtonMargin">
-                  <button className="bookingSubmitButton" type="submit">
+                  <button className="bookingSubmitButton" type="submit" onClick={e => e.preventDefault()}>
                     <span className="bookingSubmitButtonSpan">
                       Request to Book
                     </span>

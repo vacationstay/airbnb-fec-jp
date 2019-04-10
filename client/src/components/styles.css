@@ -1,4 +1,3 @@
-/* GENERAL */
 * {
     margin: 0;
     padding: 0;
@@ -7,10 +6,7 @@
 .bookingOuter {
     position: absolute;
     top: 20px;
-    /* temp reposition just to see both components during developement */
     margin-left: 1100px;
-    /* margin-left: 45px; */
-
     width: 376px;
     z-index: 3;
 }
@@ -101,20 +97,18 @@
     width: 326px;
     height: 42px;
     font-weight: 600;
+    border: 1px solid rgb(235, 235, 235) !important;
 }
 .DRPcheckinCheckoutBorder {
     display: table;
     table-layout: fixed;
-    border: 1px solid rgb(235, 235, 235) !important;
     border-radius: 2px;
 }
 .DRPcheckinCheckoutTR {
     display: table-row;
-
 }
 .DRPcheckinTableCell {
     display: table-cell;
-
 }
 .DRPcheckoutTableCell {
     display: table-cell;
