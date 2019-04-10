@@ -223,7 +223,7 @@ class BookingContainer extends React.Component {
     ));
     return (
       <div className='bookingContainerTopLevel'>
-        <div>
+        <div className='bookingStickIt'>
           <Booking
             onGuestCountChangeClick={this.onGuestCountChangeClick}
             onGuestMenuExpandClick={this.onGuestMenuExpandClick}
@@ -239,7 +239,7 @@ class BookingContainer extends React.Component {
             calendar={calendar}
           />
         </div>
-        <div className='ACSectionOffset'>
+        {/* <div className='ACSectionOffset'>
           <AvailabilityContainer
             calendar={calendar}
             buildCalendarRowForSelectedMonth={this.buildCalendarRowForSelectedMonth}
@@ -247,7 +247,7 @@ class BookingContainer extends React.Component {
             onCalendarChangeClick={this.onCalendarChangeClick}
             selectDates={this.state.selectDates}
           />
-        </div>
+        </div> */}
       </div>
     );
   }
