@@ -97,11 +97,11 @@
     width: 326px;
     height: 42px;
     font-weight: 600;
+    border: 1px solid rgb(235, 235, 235) !important;
 }
 .DRPcheckinCheckoutBorder {
     display: table;
     table-layout: fixed;
-    border: 1px solid rgb(235, 235, 235) !important;
     border-radius: 2px;
 }
 .DRPcheckinCheckoutTR {
