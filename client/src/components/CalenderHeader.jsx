@@ -22,7 +22,7 @@ function CalendarHeader(props) {
             className="calHeadBtn calHeadLeft"
             onClick={() => props.onCalendarChangeClick(false)}
           >
-            <SvgArrowLeft className="svg" />
+            <SvgArrowLeft className="svg_" />
           </div>
           <div className="calHeadBanner">
             <strong className='strongRender'>
@@ -33,7 +33,7 @@ function CalendarHeader(props) {
             className="calHeadBtn calHeadRight"
             onClick={() => props.onCalendarChangeClick(true)}
           >
-            <SvgArrowRight className="svg" />
+            <SvgArrowRight className="svg_" />
           </div>
         </div>
       </div>
