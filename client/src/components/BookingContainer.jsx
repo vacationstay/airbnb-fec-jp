@@ -197,7 +197,6 @@ class BookingContainer extends React.Component {
       }
     }
     this.setState({ selectMonthCalendar: calendar });
-    
   }
   buildCalendarRowForSelectedMonth(curRow, offSet, curCalDayNum, monthLen) {
   var calRowVals = [];
