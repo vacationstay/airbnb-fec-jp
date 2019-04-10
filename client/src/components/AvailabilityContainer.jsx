@@ -4,7 +4,7 @@ import { ACCalendarHeader } from './ACCalendarHeader.jsx';
 
 function AvailabilityContainer(props) {
   return (
-    <section>
+    <div className='ACContainer'>
       <div className='ACTopMargin'>
         <h2>
           <div className='AVTopDiv'>Availability</div>
@@ -41,7 +41,7 @@ function AvailabilityContainer(props) {
         <div className='ACBottomDivider'></div>
       </div>
       <div></div>
-    </section>
+    </div>
   )
 }
 export {

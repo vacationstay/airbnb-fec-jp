@@ -7,9 +7,10 @@
 .bookingOuter {
     position: absolute;
     top: 20px;
-    /* temp reposition just to see both components during developement */
+
     margin-left: 900px;
     /* margin-left: 45px; */
+
     width: 376px;
     z-index: 3;
 }
@@ -41,6 +42,7 @@
     line-height: 1.43;
     color: #484848;
 }
+
  .bookingStickIt {
      position: sticky;
      top: 4rem;
@@ -89,6 +91,10 @@
     font-weight: 600 !important;
     line-height: 1.33333em !important;
     color: rgb(72, 72, 72) !important;
+ }
+ .bookingStickIt {
+     position: sticky;
+     top: 4rem;
  }
 /* DATE RANGE PICKER */
 .DRPcheckinCheckout {
@@ -575,7 +581,6 @@
     display: inline-block;
 }
 .ACSectionOffset {
-    /* temp for testing */
     position: relative;
     top: 50px;
     left:60px;
@@ -612,4 +617,8 @@
 .ACContentInfoBanner {
     margin-left:20px;
     margin-right:20px;
+}
+.ACContainer {
+    background: white;
+    width: 654px;
 }
