@@ -1,7 +1,8 @@
 /* eslint-disable prefer-const */
 const mongoose = require('mongoose');
 
-const dbURL = 'mongodb://localhost/reservations';
+// 'database' needed when were runnign with docker. otherwise, localhost works just fine
+const dbURL = 'mongodb://database/reservations';
 mongoose.connect(dbURL, { useNewUrlParser: true });
 
 const db = mongoose.connection;

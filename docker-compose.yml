@@ -5,8 +5,9 @@ services:
     build: ./
     depends_on:
       - 'database'
-    ports: 
-      - '8080:8080'
+    ports:
+      - '9000:9000'
       
   database:
     image: mongo:latest
+
