@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // 'database' needed when were runnign with docker. otherwise, localhost works just fine
-const dbURL = 'mongodb://database/reservations';
+const dbURL = 'mongodb://localhost/reservations';
 mongoose.connect(dbURL, { useNewUrlParser: true });
 
 const db = mongoose.connection;

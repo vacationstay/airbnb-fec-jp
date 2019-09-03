@@ -16,7 +16,8 @@ const insertFakeBookingsInfo = () => {
     const sampleCheckin = checkin();
     const checkout = () => (faker.date.between(moment(sampleCheckin).add(1, 'days'), moment(sampleCheckin).add(rand(1, 7), 'days')));
     const sampleCheckout = checkout();
-    const sampleAvail = rand(1, 100); 
+    const samplePrice = Math.floor((Math.random() * 451)) + 50;
+    const sampleAvail = rand(1, 100);
 
     const fake = {
       room_id: i,
@@ -24,10 +25,12 @@ const insertFakeBookingsInfo = () => {
       checkout: sampleCheckout,
       guests: sampleGuest,
       availabilityScore: sampleAvail,
+      price: samplePrice,
     };
     fakeDocArr.push(fake);
   }
-  Booking.create(fakeDocArr);
+  Booking.create(fakeDocArr)
+    .then(() => db.close());
 };
 
 insertFakeBookingsInfo();

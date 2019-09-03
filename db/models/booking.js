@@ -6,6 +6,7 @@ const bookingSchema = mongoose.Schema({
   checkout: Date,
   guests: Number,
   availabilityScore: Number,
+  price: Number,
 });
 
 const Booking = mongoose.model('booking', bookingSchema);

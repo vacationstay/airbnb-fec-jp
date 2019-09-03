@@ -34,13 +34,13 @@ app.use(parser.json());
 // });
 
 app.get('/api/bookings/:room_id', (req, res) => {
-  // eslint-disable-next-line prefer-const
   let roomId = req.params.room_id;
-  Booking.findOne({ room_id: roomId }, 'availabilityScore', (err, id) => {
+  Booking.findOne({ room_id: roomId }, 'availabilityScore price', (err, id) => {
     if (err) {
       console.log('issue getting info for this room id');
       res.sendStatus(404);
     } else {
+      console.log(id);
       res.send(JSON.stringify(id));
     }
   });

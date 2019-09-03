@@ -16,12 +16,13 @@ class BookingContainer extends React.Component {
       showCal: false,
       currentShow: null,
       guests: [1, 0, 0, '1 guest'],
-      showGuest: false
+      showGuest: false,
+      price: null,
     }
     this.getDateInfoForSelectedYear = this.getDateInfoForSelectedYear.bind(this);
     this.determineStructureOfCalendarForSelectedMonth = this.determineStructureOfCalendarForSelectedMonth.bind(this);
     this.buildCalendarRowForSelectedMonth = this.buildCalendarRowForSelectedMonth.bind(this);
-    this.getDummyAvailabilityFigureForRoom = this.getDummyAvailabilityFigureForRoom.bind(this);
+    this.getAPIRoomInfo = this.getAPIRoomInfo.bind(this);
     this.modelAvailabilityForSelectedRoom = this.modelAvailabilityForSelectedRoom.bind(this);
     this.onCalendarChangeClick = this.onCalendarChangeClick.bind(this);
     this.onShowOrHideCalClick = this.onShowOrHideCalClick.bind(this);
@@ -30,20 +31,19 @@ class BookingContainer extends React.Component {
   }
   componentDidMount() {
     this.getDateInfoForSelectedYear(moment().year());
-    this.getDummyAvailabilityFigureForRoom();
+    this.getAPIRoomInfo();
   }
-  getDummyAvailabilityFigureForRoom() {
+  getAPIRoomInfo() {
     const roomNum = window.location.pathname.split('/').filter((el) => !!el).pop();
     $.ajax({
       url: `/api/bookings/${roomNum}`,
       method: 'GET'
     })
       .done((res) => {
-        // need to comment this out when im using the proxy since we dont need to parse it
-        // res = JSON.parse(res);
-        console.log(res.availabilityScore);
+        // commented out when used with proxy
+        res = JSON.parse(res);
+        this.setState({ price: res.price });
         this.modelAvailabilityForSelectedRoom(res.availabilityScore);
-        
       });
   }
   onCalendarChangeClick(direction) {
@@ -56,9 +56,8 @@ class BookingContainer extends React.Component {
     }
     const indexOfMonthToBeRendered = monthNames.indexOf(this.state.selectDates[0]) + modifier;
     const selectMonth = monthNames[indexOfMonthToBeRendered];
-
     this.setState({
-      selectDates: [selectMonth, this.state.selectDates[1]]
+      selectDates: [selectMonth, this.state.selectDates[1]],
     }, () => {
         this.determineStructureOfCalendarForSelectedMonth(indexOfMonthToBeRendered);
     });
@@ -71,7 +70,6 @@ class BookingContainer extends React.Component {
       currentShow === 'Check-in' ? nextShow = 'Checkout' : nextShow = 'Check-in';
     }
     const id = e.target.id;
-
     if (currentShow && (id !== currentShow)) {
       currentShow = nextShow;
     } else {
@@ -199,7 +197,7 @@ class BookingContainer extends React.Component {
     this.setState({ selectMonthCalendar: calendar });
   }
   buildCalendarRowForSelectedMonth(curRow, offSet, curCalDayNum, monthLen) {
-  var calRowVals = [];
+    var calRowVals = [];
     for (var i = 0; i < 7; i += 1) {
       curRow ? offSet = 0 : offSet;
       if (offSet) {
@@ -212,7 +210,7 @@ class BookingContainer extends React.Component {
         curCalDayNum += 1;
       }  
     }
-  return calRowVals;
+    return calRowVals;
   }
   
   render() {
@@ -231,11 +229,10 @@ class BookingContainer extends React.Component {
             currentShow={this.state.currentShow}
             showCal={this.state.showCal}
             onShowOrHideCalClick={this.onShowOrHideCalClick}
-            buildCalendarRowForSelectedMonth={this.buildCalendarRowForSelectedMonth}
-            determineStructureOfCalendarForSelectedMonth={this.determineStructureOfCalendarForSelectedMonth}
             onCalendarChangeClick={this.onCalendarChangeClick}
             selectDates={this.state.selectDates}
             calendar={calendar}
+            price={this.state.price}
           />
         </div>
         {/* <div className='ACSectionOffset'>

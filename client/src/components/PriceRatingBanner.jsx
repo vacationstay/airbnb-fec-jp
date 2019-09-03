@@ -6,7 +6,7 @@ function PriceRatingBanner(props) {
     <div>
       <div className="PRBPriceBanner">
         <span className="spanRender">
-          <span className="spanRender PRBPriceHead">$66</span>
+          <span className="spanRender PRBPriceHead">${props.price}</span>
         </span>
         <span className="spanRender PRBPerNightHead"> per night</span>
       </div>
