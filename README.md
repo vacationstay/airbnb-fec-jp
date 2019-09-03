@@ -1,4 +1,4 @@
-# airbnb-fec - Bookings and Reservations module
+# VacationStay Bookings and Reservations module
 
 ## Description
 - Bookings and reservations module for HomeStays home reservation application build on a MERN stack
