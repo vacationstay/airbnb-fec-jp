@@ -25,7 +25,6 @@ function DateRangePicker(props) {
                   placeholder="Check-in"
                   onClick={(e) => props.onShowOrHideCalClick(e)}
                 />
-                
                 <div
                   className={
                     props.showCal

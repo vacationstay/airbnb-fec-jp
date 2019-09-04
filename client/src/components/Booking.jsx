@@ -10,7 +10,7 @@ function Booking(props) {
         <div className="bookingBorder">
           <div className="bookingSpacer">
             <div className="bookingContentArea">
-              <PriceRatingBanner />
+              <PriceRatingBanner price={props.price}/>
               <form className="bookingForm">
                 <div className="bookingFormStandardFields">
                   <div className="bookingFormFieldsTopMargin">
@@ -18,12 +18,8 @@ function Booking(props) {
                       currentShow={props.currentShow}
                       showCal={props.showCal}
                       onShowOrHideCalClick={props.onShowOrHideCalClick}
-                      buildCalendarRowForSelectedMonth={
-                        props.buildCalendarRowForSelectedMonth
-                      }
-                      determineStructureOfCalendarForSelectedMonth={
-                        props.determineStructureOfCalendarForSelectedMonth
-                      }
+                      buildCalendarRowForSelectedMonth={props.buildCalendarRowForSelectedMonth}
+                      determineStructureOfCalendarForSelectedMonth={props.determineStructureOfCalendarForSelectedMonth}
                       onCalendarChangeClick={props.onCalendarChangeClick}
                       calendar={props.calendar}
                       selectDates={props.selectDates}

@@ -14,10 +14,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -d --watch",
+    "build": "webpack -p --watch",
     "server": "nodemon index.js",
     "test": "jest",
-    "seed": "node db/seeddb.js"
+    "seed": "node db/seeddb.js",
+    "start-docker": "node db/seeddb.js & node index.js"
   },
   "repository": {
     "type": "git",

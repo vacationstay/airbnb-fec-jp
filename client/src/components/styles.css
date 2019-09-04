@@ -242,10 +242,12 @@
     color: rgb(117, 117, 117);
 }
 .calHeadLeft {
-    left: 22px;
+    left: 18px;
+    top: 16px;
 }
 .calHeadRight {
-    right: 22px;
+    right: 18px;
+    top: 16px;
 }
 .renderUl {
     top: 62px;
@@ -261,6 +263,7 @@
 }
 .inputRender {
     border: none;
+    height: 42px;
 }
 .spanRender {
     font-size: 12px !important;
@@ -301,7 +304,7 @@
     height: 22px;
 }
 .svg_{
-    padding: 6px 9px;
+    padding: 2px 4px;
     display: block;
     color: rgb(117, 117, 117);
 }
